@@ -21,8 +21,10 @@ function App() {
 
   return (
     <div className="App">
-      {/*Object.keys(json).map(key => <div>{key}</div>)*/}
-      {JSON.stringify(json)}s
+      {Object.keys(json).map(key => 
+      <p>{JSON.stringify(json[key].id)}. {JSON.stringify(json[key].name).replaceAll("\"", "")} - {JSON.stringify(json[key].username)} ({JSON.stringify(json[key].email).replaceAll("\"","")})
+      </p>)}
+      {/*JSON.stringify(json)*/}
     </div>
   );
 }
