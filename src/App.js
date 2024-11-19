@@ -8,21 +8,21 @@ function App() {
   async function getUserList(){
     try{
       let response = await fetch("https://jsonplaceholder.typicode.com/users");
-      let responseJson = await JSON.stringify(response.json());
-      return responseJson;
+      let responseJson = await response.json();
+      setJson(responseJson);
     } catch(error){
       console.error(error);
-      return "d";
     }
   }
 
   useEffect(() => {
-    setJson(getUserList());
-  })
+    getUserList();
+  }, [])
 
   return (
     <div className="App">
-      {Object.keys(json).map(key => <div>{key}</div>)}
+      {/*Object.keys(json).map(key => <div>{key}</div>)*/}
+      {JSON.stringify(json)}s
     </div>
   );
 }
